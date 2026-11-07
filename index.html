@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Pembelajaran Interaktif Ekonomi - Ketenagakerjaan</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#1E40AF',
+                            darkblue: '#1E3A8A',
+                            lightblue: '#3B82F6',
+                            orange: '#F97316',
+                            lightorange: '#FFEDD5',
+                            accent: '#0EA5E9',
+                            bglight: '#F8FAFC'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 font-sans text-slate-800 antialiased min-h-screen flex flex-col justify-between selection:bg-brand-orange selection:text-white">
+
+    <!-- TOP NAVIGATION BAR -->
+    <header class="sticky top-0 z-50 bg-brand-darkblue text-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center space-x-3 cursor-pointer" onclick="showSection('hero')">
+                    <div class="bg-brand-orange text-white p-2 rounded-lg font-bold text-xl">
+                        <i class="fa-solid fa-briefcase"></i>
+                    </div>
+                    <div>
+                        <h1 class="font-bold text-base sm:text-lg leading-tight">EKONOMI INTERAKTIF</h1>
+                        <p class="text-xs text-blue-200">SMA Negeri 46 Maluku Tengah</p>
+                    </div>
+                </div>
+
+                <!-- Global Navigation Controls -->
+                <div class="flex items-center space-x-2 sm:space-x-4">
+                    <!-- Progress Meter -->
+                    <div class="hidden md:flex items-center space-x-2 bg-blue-900/50 px-3 py-1.5 rounded-full border border-blue-700/50 text-xs">
+                        <span>Progres Belajar:</span>
+                        <div class="w-24 bg-blue-950 rounded-full h-2 overflow-hidden">
+                            <div id="global-progress" class="bg-brand-orange h-full w-0 transition-all duration-300"></div>
+                        </div>
+                        <span id="progress-text" class="font-bold text-brand-orange">0%</span>
+                    </div>
+
+                    <button onclick="showSection('menu')" class="bg-brand-orange hover:bg-orange-600 text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg font-medium text-xs sm:text-sm transition flex items-center gap-1.5 shadow-sm">
+                        <i class="fa-solid fa-grid-2"></i> Menu Utama
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
+
+        <!-- 1. HALAMAN PEMBUKA / HERO -->
+        <section id="hero" class="content-section">
+            <div class="bg-gradient-to-br from-brand-darkblue via-brand-blue to-slate-900 rounded-3xl text-white p-6 sm:p-10 lg:p-12 shadow-2xl relative overflow-hidden">
+                <!-- Background Decorative Circles -->
+                <div class="absolute -right-10 -bottom-10 w-80 h-80 bg-brand-orange/20 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="absolute left-1/3 -top-10 w-60 h-60 bg-blue-400/20 rounded-full blur-2xl pointer-events-none"></div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+                    <div class="lg:col-span-7 space-y-6">
+                        <div class="inline-flex items-center gap-2 bg-brand-orange/20 border border-brand-orange/40 text-orange-300 px-3 py-1 rounded-full text-xs sm:text-sm font-semibold">
+                            <i class="fa-solid fa-graduation-cap"></i> Kurikulum Merdeka • Fase F Kelas XI
+                        </div>
+                        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight">
+                            Media Pembelajaran Digital <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-300">Ketenagakerjaan</span>
+                        </h1>
+                        <p class="text-blue-100 text-sm sm:text-base leading-relaxed">
+                            Eksplorasi konsep ketenagakerjaan, jenis tenaga kerja, dinamika pengangguran, sistem upah, dan solusi kontekstual untuk kemajuan perekonomian Indonesia dan Maluku Tengah.
+                        </p>
+
+                        <div class="p-4 bg-white/10 rounded-2xl backdrop-blur-md border border-white/10 flex items-center space-x-4">
+                            <div class="w-12 h-12 rounded-full bg-brand-orange flex items-center justify-center font-bold text-xl text-white flex-shrink-0">
+                                DR
+                            </div>
+                            <div>
+                                <p class="text-xs text-blue-200">Guru Pengampu:</p>
+                                <p class="font-bold text-white text-base">Dewi I. Rolobessy, S.E.</p>
+                                <p class="text-xs text-blue-300">SMA Negeri 46 Maluku Tengah</p>
+                            </div>
+                        </div>
+
+                        <div class="pt-2">
+                            <button onclick="showSection('menu')" class="w-full sm:w-auto bg-brand-orange hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-orange-500/30 transition duration-300 flex items-center justify-center gap-3 text-lg group">
+                                MULAI BELAJAR <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition duration-200"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-5 grid grid-cols-2 gap-4">
+                        <div class="bg-white/10 p-5 rounded-2xl backdrop-blur-sm border border-white/10 hover:border-brand-orange/50 transition">
+                            <div class="text-brand-orange text-3xl mb-2"><i class="fa-solid fa-user-gear"></i></div>
+                            <h3 class="font-bold text-white mb-1">Tenaga Kerja</h3>
+                            <p class="text-xs text-blue-200">Kualitas, keahlian, dan klasifikasi jenis kerja.</p>
+                        </div>
+                        <div class="bg-white/10 p-5 rounded-2xl backdrop-blur-sm border border-white/10 hover:border-brand-orange/50 transition">
+                            <div class="text-emerald-400 text-3xl mb-2"><i class="fa-solid fa-chart-line"></i></div>
+                            <h3 class="font-bold text-white mb-1">Pasar Kerja</h3>
+                            <p class="text-xs text-blue-200">Permintaan dan penawaran kesempatan kerja.</p>
+                        </div>
+                        <div class="bg-white/10 p-5 rounded-2xl backdrop-blur-sm border border-white/10 hover:border-brand-orange/50 transition">
+                            <div class="text-amber-400 text-3xl mb-2"><i class="fa-solid fa-coins"></i></div>
+                            <h3 class="font-bold text-white mb-1">Sistem Upah</h3>
+                            <p class="text-xs text-blue-200">Kebijakan UMP/UMK & kesejahteraan pekerja.</p>
+                        </div>
+                        <div class="bg-white/10 p-5 rounded-2xl backdrop-blur-sm border border-white/10 hover:border-brand-orange/50 transition">
+                            <div class="text-sky-400 text-3xl mb-2"><i class="fa-solid fa-anchor"></i></div>
+                            <h3 class="font-bold text-white mb-1">Lokal Maluku</h3>
+                            <p class="text-xs text-blue-200">Potensi bahari, pertanian, & UMKM daerah.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. MENU UTAMA -->
+        <section id="menu" class="content-section hidden">
+            <div class="mb-6 text-center sm:text-left">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-brand-darkblue">Menu Utama Pembelajaran</h2>
+                <p class="text-slate-600 text-sm">Pilih modul atau aktivitas pembelajaran di bawah ini untuk memulai belajar secara mandiri.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                <!-- Menu Card 1: Petunjuk -->
+                <div onclick="showSection('petunjuk')" class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-xl border border-slate-200 hover:border-brand-blue cursor-pointer transition duration-300 group">
+                    <div class="w-12 h-12 bg-blue-100 text-brand-blue rounded-xl flex items-center justify-center text-xl font-bold mb-4 group-hover:scale-110 transition duration-300">
+                        <i class="fa-solid fa-compass"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-800 mb-1 group-hover:text-brand-blue">Petunjuk Penggunaan</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed">Panduan navigasi dan cara mengoperasikan media interaktif.</p>
+                </div>
+
+                <!-- Menu Card 2: CP & TP -->
+                <div onclick="showSection('cptp')" class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-xl border border-slate-200 hover:border-brand-blue cursor-pointer transition duration-300 group">
+                    <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-xl flex items-center justify-center text-xl font-bold mb-4 group-hover:scale-110 transition duration-300">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-800 mb-1 group-hover:text-indigo-600">Capaian & Tujuan</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed">Target kompetensi Kurikulum Merdeka Fase F Ekonomi.</p>
+                </div>
+
+                <!-- Menu Card 3: Apersepsi -->
+                <div onclick="showSection('apersepsi')" class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-xl border border-slate-200 hover:border-brand-orange cursor-pointer transition duration-300 group">
+                    <div class="w-12 h-12 bg-amber-100 text-brand-orange rounded-xl flex items-center justify-center text-xl font-bold mb-4 group-hover:scale-110 transition duration-300">
+                        <i class="fa-solid fa-lightbulb"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-800 mb-1 group-hover:text-brand-orange">Apersepsi Kontekstual</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed">Pertanyaan pemantik & realita Ketenagakerjaan Maluku Tengah.</p>
+                </div>
+
+                <!-- Menu Card 4: Materi -->
+                <div onclick="showSection('materi')" class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-xl border border-slate-200 hover:border-brand-blue cursor-pointer transition duration-300 group">
+                    <div class="w-12 h-12 bg-sky-100 text-sky-600 rounded-xl flex items-center justify-center text-xl font-bold mb-4 group-hover:scale-110 transition duration-300">
+                        <i class="fa-solid fa-book-open-reader"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-800 mb-1 group-hover:text-sky-600">Materi Pembelajaran</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed">Konsep ketenagakerjaan, jenis, masalah, pengangguran & upah.</p>
+                </div>
+
+                <!-- Menu Card 5: Aktivitas -->
+                <div onclick="showSection('aktivitas')" class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-xl border border-slate-200 hover:border-emerald-500 cursor-pointer transition duration-300 group">
+                    <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center text-xl font-bold mb-4 group-hover:scale-110 transition duration-300">
+                        <i class="fa-solid fa-puzzle-piece"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-800 mb-1 group-hover:text-emerald-600">Aktivitas Interaktif</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed">Studi kasus daerah, pengelompokan jenis kerja & problem solving.</p>
+                </div>
+
+                <!-- Menu Card 6: Game -->
+                <div onclick="showSection('game')" class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-xl border border-slate-200 hover:border-purple-500 cursor-pointer transition duration-300 group">
+                    <div class="w-12 h-12 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center text-xl font-bold mb-4 group-hover:scale-110 transition duration-300">
+                        <i class="fa-solid fa-gamepad"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-800 mb-1 group-hover:text-purple-600">Permainan Edukatif</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed">Kuis tebak cepat & game Benar-Salah ketenagakerjaan.</p>
+                </div>
+
+                <!-- Menu Card 7: Evaluasi -->
+                <div onclick="showSection('evaluasi')" class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-xl border border-slate-200 hover:border-rose-500 cursor-pointer transition duration-300 group">
+                    <div class="w-12 h-12 bg-rose-100 text-rose-600 rounded-xl flex items-center justify-center text-xl font-bold mb-4 group-hover:scale-110 transition duration-300">
+                        <i class="fa-solid fa-file-pen"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-800 mb-1 group-hover:text-rose-600">Evaluasi Pembelajaran</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed">Tes formatif (25 soal) dilengkapi penilaian otomatis & kunci.</p>
+                </div>
+
+                <!-- Menu Card 8: Refleksi & Profil -->
+                <div onclick="showSection('refleksi')" class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-xl border border-slate-200 hover:border-teal-500 cursor-pointer transition duration-300 group">
+                    <div class="w-12 h-12 bg-teal-100 text-teal-600 rounded-xl flex items-center justify-center text-xl font-bold mb-4 group-hover:scale-110 transition duration-300">
+                        <i class="fa-solid fa-user-graduate"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-800 mb-1 group-hover:text-teal-600">Refleksi & Profil Guru</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed">Jurnal refleksi mandiri peserta didik & identitas penyusun.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. PETUNJUK PENGGUNAAN -->
+        <section id="petunjuk" class="content-section hidden">
+            <div class="bg-white p-6 sm:p-8 rounded-3xl shadow-sm border border-slate-200">
+                <div class="flex items-center justify-between mb-6 pb-4 border-b border-slate-100">
+                    <h2 class="text-2xl font-bold text-brand-darkblue flex items-center gap-3">
+                        <i class="fa-solid fa-compass text-brand-orange"></i> Petunjuk Penggunaan Media
+                    </h2>
+                    <button onclick="showSection('menu')" class="text-sm text-slate-500 hover:text-brand-blue font-semibold"><i class="fa-solid fa-arrow-left"></i> Kembali</button>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-4">
+                        <div class="flex gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-100">
+                            <div class="w-10 h-10 rounded-full bg-brand-blue text-white flex items-center justify-center font-bold flex-shrink-0">1</div>
+                            <div>
+                                <h4 class="font-bold text-slate-800">Alur Belajar Berurutan</h4>
+                                <p class="text-xs text-slate-600 mt-1">Mulailah dari Apersepsi, dilanjutkan pemahaman Materi, Video, Aktivitas Interaktif, Permainan, dan diakhiri Evaluasi.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-100">
+                            <div class="w-10 h-10 rounded-full bg-brand-blue text-white flex items-center justify-center font-bold flex-shrink-0">2</div>
+                            <div>
+                                <h4 class="font-bold text-slate-800">Navigasi Responsif</h4>
+                                <p class="text-xs text-slate-600 mt-1">Gunakan tombol "Menu Utama" di bagian atas atau tombol navigasi di dasar setiap halaman untuk berpindah modul.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-100">
+                            <div class="w-10 h-10 rounded-full bg-brand-orange text-white flex items-center justify-center font-bold flex-shrink-0">3</div>
+                            <div>
+                                <h4 class="font-bold text-slate-800">Interaktivitas & Gamifikasi</h4>
+                                <p class="text-xs text-slate-600 mt-1">Klik tombol interaktif, jalankan simulasi pencocokan kata, dan selesaikan game untuk menguji ingatan secara instan.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-100">
+                            <div class="w-10 h-10 rounded-full bg-brand-orange text-white flex items-center justify-center font-bold flex-shrink-0">4</div>
+                            <div>
+                                <h4 class="font-bold text-slate-800">Umpan Balik Evaluasi Auto</h4>
+                                <p class="text-xs text-slate-600 mt-1">Di menu Evaluasi, jawablah 25 soal secara mandiri. Skor dan pembahasan detail akan langsung terbuka setelah submit.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. CAPAIAN & TUJUAN PEMBELAJARAN (CP/TP) -->
+        <section id="cptp" class="content-section hidden">
+            <div class="bg-white p-6 sm:p-8 rounded-3xl shadow-sm border border-slate-200">
+                <div class="flex items-center justify-between mb-6 pb-4 border-b border-slate-100">
+                    <h2 class="text-2xl font-bold text-brand-darkblue flex items-center gap-3">
+                        <i class="fa-solid fa-bullseye text-brand-orange"></i> Capaian & Tujuan Pembelajaran
+                    </h2>
+                    <button onclick="showSection('menu')" class="text-sm text-slate-500 hover:text-brand-blue font-semibold"><i class="fa-solid fa-arrow-left"></i> Kembali</button>
+                </div>
+
+                <div class="space-y-6">
+                    <!-- Capaian Pembelajaran -->
+                    <div class="bg-blue-50 border-l-4 border-brand-blue p-5 rounded-r-2xl">
+                        <h3 class="text-lg font-bold text-brand-darkblue mb-2 flex items-center gap-2">
+                            <i class="fa-solid fa-award text-brand-blue"></i> Capaian Pembelajaran (CP) - Fase F
+                        </h3>
+                        <p class="text-slate-700 text-sm leading-relaxed">
+                            Pada akhir Fase F, peserta didik mampu memahami dan menganalisis berbagai konsep ketenagakerjaan, dinamika pasar kerja, permasalahan ketenagakerjaan di Indonesia dan daerah lokal, fenomena pengangguran beserta dampaknya, serta merumuskan alternatif solusi kontekstual melalui pendekatan berpikir kritis dan mandiri.
+                        </p>
+                    </div>
+
+                    <!-- Tujuan Pembelajaran -->
+                    <div>
+                        <h3 class="text-lg font-bold text-slate-800 mb-3">Tujuan Pembelajaran (TP) Spesifik:</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                            <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200 flex items-start gap-3 text-xs sm:text-sm">
+                                <span class="bg-emerald-500 text-white w-6 h-6 rounded-full flex items-center justify-center font-bold flex-shrink-0 text-xs">1</span>
+                                <span>Menjelaskan konsep ketenagakerjaan dan istilah terkait (tenaga kerja, angkatan kerja, kesempatan kerja).</span>
+                            </div>
+                            <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200 flex items-start gap-3 text-xs sm:text-sm">
+                                <span class="bg-emerald-500 text-white w-6 h-6 rounded-full flex items-center justify-center font-bold flex-shrink-0 text-xs">2</span>
+                                <span>Membedakan kelompok tenaga kerja, angkatan kerja, kesempatan kerja, dan bukan angkatan kerja.</span>
+                            </div>
+                            <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200 flex items-start gap-3 text-xs sm:text-sm">
+                                <span class="bg-emerald-500 text-white w-6 h-6 rounded-full flex items-center justify-center font-bold flex-shrink-0 text-xs">3</span>
+                                <span>Mengklasifikasikan jenis-jenis tenaga kerja berdasarkan kualitas (terdidik, terlatih, tidak terdidik/terlatih).</span>
+                            </div>
+                            <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200 flex items-start gap-3 text-xs sm:text-sm">
+                                <span class="bg-emerald-500 text-white w-6 h-6 rounded-full flex items-center justify-center font-bold flex-shrink-0 text-xs">4</span>
+                                <span>Menganalisis permasalahan ketenagakerjaan utama di Indonesia dan daerah Maluku Tengah.</span>
+                            </div>
+                            <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200 flex items-start gap-3 text-xs sm:text-sm">
+                                <span class="bg-emerald-500 text-white w-6 h-6 rounded-full flex items-center justify-center font-bold flex-shrink-0 text-xs">5</span>
+                                <span>Mengidentifikasi penyebab, dampak, dan jenis-jenis pengangguran serta cara mengatasinya.</span>
+                            </div>
+                            <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200 flex items-start gap-3 text-xs sm:text-sm">
+                                <span class="bg-emerald-500 text-white w-6 h-6 rounded-full flex items-center justify-center font-bold flex-shrink-0 text-xs">6</span>
+                                <span>Menjelaskan beragam sistem pengupahan dan kebijakan pemerintah di bidang ketenagakerjaan.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. APERSEPSI KONTEKSTUAL -->
+        <section id="apersepsi" class="content-section hidden">
+            <div class="bg-white p-6 sm:p-8 rounded-3xl shadow-sm border border-slate-200">
+                <div class="flex items-center justify-between mb-6 pb-4 border-b border-slate-100">
+                    <h2 class="text-2xl font-bold text-brand-darkblue flex items-center gap-3">
+                        <i class="fa-solid fa-lightbulb text-amber-500"></i> Apersepsi: Mengapa Kita Bekerja?
+                    </h2>
+                    <button onclick="showSection('menu')" class="text-sm text-slate-500 hover:text-brand-blue font-semibold"><i class="fa-solid fa-arrow-left"></i> Kembali</button>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-7 space-y-4">
+                        <p class="text-slate-700 text-sm sm:text-base leading-relaxed">
+                            Pernahkah kalian melihat aktivitas nelayan di pesisir Maluku Tengah, para pedagang di Pasar Masohi, atau para guru dan tenaga medis di sekitar lingkungan tempat tinggalmu? Mereka semua melakukan aktivitas ekonomi untuk memenuhi kebutuhan hidup.
+                        </p>
+
+                        <div class="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-xl space-y-3">
+                            <h4 class="font-bold text-amber-900 text-sm flex items-center gap-2">
+                                <i class="fa-solid fa-comments"></i> Pertanyaan Pemantik untuk Diskusi:
+                            </h4>
+                            <ul class="text-xs sm:text-sm text-amber-800 space-y-2 list-disc list-inside">
+                                <li>Mengapa setiap orang dewasa dituntut untuk memiliki pekerjaan?</li>
+                                <li>Apakah semua orang yang memiliki usia produktif di Maluku Tengah pasti bekerja?</li>
+                                <li>Mengapa angka pengangguran lulusan muda masih menjadi masalah di Indonesia?</li>
+                                <li>Bagaimana potensi lokal seperti sektor perikanan & perkebunan pala/cengkeh di Maluku Tengah dapat menyerap tenaga kerja?</li>
+                            </ul>
+                        </div>
+
+                        <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 text-xs text-slate-600">
+                            <i class="fa-solid fa-circle-info text-brand-blue mr-1"></i>
+                            <strong>Fakta Singkat:</strong> Berdasarkan data BPS, struktur ketenagakerjaan daerah dipengaruhi oleh ketersediaan lapangan kerja di sektor primer (pertanian/perikanan) dan kualitas pendidikan angkatan kerja lokal.
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-5 space-y-4">
+                        <div class="bg-gradient-to-tr from-brand-blue to-indigo-700 text-white p-6 rounded-2xl shadow-lg text-center">
+                            <div class="text-4xl mb-3 text-amber-300"><i class="fa-solid fa-people-group"></i></div>
+                            <h3 class="font-bold text-lg mb-2">Refleksi Awal Kasus</h3>
+                            <p class="text-xs text-blue-100 leading-relaxed mb-4">
+                                "Roni baru saja lulus SMA di Maluku Tengah dan ingin langsung bekerja membantu orang tuanya. Namun, ia bingung mencari lapangan kerja yang sesuai."
+                            </p>
+                            <button onclick="showSection('materi')" class="bg-brand-orange hover:bg-orange-600 text-white px-4 py-2 rounded-lg text-xs font-bold transition shadow">
+                                Temukan Jawabannya di Materi <i class="fa-solid fa-arrow-right ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. MATERI PEMBELAJARAN (TABBED SECTION) -->
+        <section id="materi" class="content-section hidden">
+            <div class="bg-white p-6 sm:p-8 rounded-3xl shadow-sm border border-slate-200">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-100">
+                    <div>
+                        <h2 class="text-2xl font-bold text-brand-darkblue flex items-center gap-3">
+                            <i class="fa-solid fa-book-open-reader text-brand-blue"></i> Modul Materi Pembelajaran
+                        </h2>
+                        <p class="text-xs text-slate-500">Pilih sub-topik materi di bawah ini untuk mempelajari konsep secara mendalam.</p>
+                    </div>
+                    <button onclick="showSection('menu')" class="text-sm text-slate-500 hover:text-brand-blue font-semibold self-start sm:self-auto"><i class="fa-solid fa-arrow-left"></i> Kembali</button>
+                </div>
+
+                <!-- Sub-Materi Tabs -->
+                <div class="flex flex-wrap gap-2 mb-6 border-b border-slate-200 pb-3">
+                    <button onclick="switchMateriTab('konsep')" id="tab-konsep" class="materi-tab-btn px-4 py-2 rounded-xl font-bold text-xs sm:text-sm bg-brand-blue text-white shadow-sm transition">
+                        A. Konsep Dasar
+                    </button>
+                    <button onclick="switchMateriTab('jenis')" id="tab-jenis" class="materi-tab-btn px-4 py-2 rounded-xl font-bold text-xs sm:text-sm bg-slate-100 text-slate-600 hover:bg-slate-200 transition">
+                        B. Jenis Tenaga Kerja
+                    </button>
+                    <button onclick="switchMateriTab('masalah')" id="tab-masalah" class="materi-tab-btn px-4 py-2 rounded-xl font-bold text-xs sm:text-sm bg-slate-100 text-slate-600 hover:bg-slate-200 transition">
+                        C. Masalah Ketenagakerjaan
+                    </button>
+                    <button onclick="switchMateriTab('pengangguran')" id="tab-pengangguran" class="materi-tab-btn px-4 py-2 rounded-xl font-bold text-xs sm:text-sm bg-slate-100 text-slate-600 hover:bg-slate-200 transition">
+                        D. Pengangguran & Solusi
+                    </button>
+                    <button onclick="switchMateriTab('upah')" id="tab-upah" class="materi-tab-btn px-4 py-2 rounded-xl font-bold text-xs sm:text-sm bg-slate-100 text-slate-600 hover:bg-slate-200 transition">
+                        E. Sistem Pengupahan
+                    </button>
+                </div>
+
+                <!-- MATERI CONTENT AREA -->
+                <div id="materi-content-area">
+                    <!-- Tab A: Konsep Dasar -->
+                    <div id="materi-konsep" class="materi-tab-content space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200">
+                                <h3 class="font-bold text-brand-darkblue text-lg mb-3 flex items-center gap-2">
+                                    <i class="fa-solid fa-layer-group text-brand-orange"></i> 1. Ketenagakerjaan
+                                </h3>
+                                <p class="text-slate-700 text-xs sm:text-sm leading-relaxed mb-3">
+                                    Berdasarkan UU No. 13 Tahun 2003, <strong>Ketenagakerjaan</strong> adalah segala hal yang berhubungan dengan tenaga kerja pada waktu sebelum, selama, dan sesudah masa kerja.
+                                </p>
+                                <div class="bg-white p-3 rounded-xl border border-slate-200 text-xs text-slate-600">
+                                    <strong>Cakupan:</strong> Meliputi pelatihan kerja, penempatan tenaga kerja, pengupahan, hingga jaminan sosial setelah pensiun.
+                                </div>
+                            </div>
+
+                            <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200">
+                                <h3 class="font-bold text-brand-darkblue text-lg mb-3 flex items-center gap-2">
+                                    <i class="fa-solid fa-users text-brand-blue"></i> 2. Tenaga Kerja (Manpower)
+                                </h3>
+                                <p class="text-slate-700 text-xs sm:text-sm leading-relaxed mb-3">
+                                    Setiap orang yang mampu melakukan pekerjaan guna menghasilkan barang dan/atau jasa baik untuk memenuhi kebutuhan sendiri maupun masyarakat.
+                                </p>
+                                <div class="bg-white p-3 rounded-xl border border-slate-200 text-xs text-slate-600">
+                                    <strong>Batasan Usia:</strong> Di Indonesia, penduduk usia kerja umumnya berada pada kelompok umur <strong>15 tahun ke atas</strong>.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Infografis Hubungan Kelompok Penduduk -->
+                        <div class="bg-gradient-to-r from-blue-900 to-slate-900 text-white p-6 rounded-2xl">
+                            <h3 class="font-bold text-center text-lg mb-4 text-amber-300">
+                                <i class="fa-solid fa-sitemap mr-2"></i> Skema Bagan Klasifikasi Penduduk Usia Kerja
+                            </h3>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+                                <div class="bg-white/10 p-4 rounded-xl border border-white/20">
+                                    <h4 class="font-bold text-orange-400 mb-1">Angkatan Kerja (Labor Force)</h4>
+                                    <p class="text-xs text-slate-200">Penduduk usia kerja yang bekerja ATAU sedang aktif mencari pekerjaan (pengangguran).</p>
+                                </div>
+                                <div class="bg-white/10 p-4 rounded-xl border border-white/20">
+                                    <h4 class="font-bold text-sky-300 mb-1">Bukan Angkatan Kerja</h4>
+                                    <p class="text-xs text-slate-200">Penduduk usia kerja yang bersekolah (pelajar/mahasiswa), mengurus rumah tangga, atau penerima pendapatan lain.</p>
+                                </div>
+                                <div class="bg-white/10 p-4 rounded-xl border border-white/20">
+                                    <h4 class="font-bold text-emerald-400 mb-1">Kesempatan Kerja</h4>
+                                    <p class="text-xs text-slate-200">Ketersediaan lapangan pekerjaan yang siap diisi oleh para pencari kerja.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab B: Jenis Tenaga Kerja -->
+                    <div id="materi-jenis" class="materi-tab-content hidden space-y-6">
+                        <h3 class="text-lg font-bold text-brand-darkblue">Klasifikasi Tenaga Kerja Berdasarkan Kualitas</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <!-- Terdidik -->
+                            <div class="bg-white p-5 rounded-2xl border-2 border-blue-200 shadow-sm hover:border-brand-blue transition">
+                                <div class="w-12 h-12 bg-blue-100 text-brand-blue rounded-xl flex items-center justify-center text-xl font-bold mb-3">
+                                    <i class="fa-solid fa-user-graduate"></i>
+                                </div>
+                                <h4 class="font-bold text-slate-800 text-base mb-2">Tenaga Kerja Terdidik</h4>
+                                <p class="text-xs text-slate-600 leading-relaxed mb-3">
+                                    Tenaga kerja yang memiliki keahlian pada bidang tertentu yang diperoleh melalui pendidikan formal (diploma/sarjana).
+                                </p>
+                                <div class="bg-blue-50 p-2.5 rounded-lg text-xs font-semibold text-brand-blue">
+                                    Contoh: Guru SMAN 46 Maluku Tengah, Dokter, Akuntan, Pengacara, Insinyur.
+                                </div>
+                            </div>
+
+                            <!-- Terlatih -->
+                            <div class="bg-white p-5 rounded-2xl border-2 border-orange-200 shadow-sm hover:border-brand-orange transition">
+                                <div class="w-12 h-12 bg-orange-100 text-brand-orange rounded-xl flex items-center justify-center text-xl font-bold mb-3">
+                                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                                </div>
+                                <h4 class="font-bold text-slate-800 text-base mb-2">Tenaga Kerja Terlatih</h4>
+                                <p class="text-xs text-slate-600 leading-relaxed mb-3">
+                                    Tenaga kerja yang mengandalkan keterampilan praktis atau keahlian khusus yang diperoleh melalui latihan non-formal & pengalaman.
+                                </p>
+                                <div class="bg-orange-50 p-2.5 rounded-lg text-xs font-semibold text-brand-orange">
+                                    Contoh: Mekanik Mesin Kapal, Sopir, Koki, Penjahit, Teknisian Listrik.
+                                </div>
+                            </div>
+
+                            <!-- Tidak Terdidik & Tidak Terlatih -->
+                            <div class="bg-white p-5 rounded-2xl border-2 border-slate-200 shadow-sm hover:border-slate-400 transition">
+                                <div class="w-12 h-12 bg-slate-100 text-slate-600 rounded-xl flex items-center justify-center text-xl font-bold mb-3">
+                                    <i class="fa-solid fa-hands-holding"></i>
+                                </div>
+                                <h4 class="font-bold text-slate-800 text-base mb-2">Tidak Terdidik & Terlatih</h4>
+                                <p class="text-xs text-slate-600 leading-relaxed mb-3">
+                                    Tenaga kerja yang bekerja mengandalkan tenaga fisik semata tanpa memerlukan pendidikan khusus atau pelatihan formal intensif.
+                                </p>
+                                <div class="bg-slate-100 p-2.5 rounded-lg text-xs font-semibold text-slate-700">
+                                    Contoh: Kuli Angkut Pelabuhan, Buruh Harian Lepas, Petugas Kebersihan.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab C: Permasalahan Ketenagakerjaan -->
+                    <div id="materi-masalah" class="materi-tab-content hidden space-y-6">
+                        <div class="bg-rose-50 border-l-4 border-rose-500 p-4 rounded-r-xl mb-4">
+                            <h3 class="font-bold text-rose-900 text-base">Permasalahan Utama Ketenagakerjaan di Indonesia & Daerah</h3>
+                            <p class="text-xs text-rose-700">Tantangan struktural yang memengaruhi kesejahteraan pekerja dan produktivitas nasional.</p>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+                                <h4 class="font-bold text-slate-800 text-sm mb-1 text-brand-blue"><i class="fa-solid fa-circle-exclamation mr-1"></i> 1. Kualitas Tenaga Kerja Relatif Rendah</h4>
+                                <p class="text-xs text-slate-600">Masih terbatasnya akses pendidikan tinggi & sertifikasi kompetensi kerja di berbagai wilayah.</p>
+                            </div>
+                            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+                                <h4 class="font-bold text-slate-800 text-sm mb-1 text-brand-blue"><i class="fa-solid fa-scale-unbalanced mr-1"></i> 2. Ketidakseimbangan Jumlah & Lapangan Kerja</h4>
+                                <p class="text-xs text-slate-600">Pertumbuhan angkatan kerja baru setiap tahun tidak sebanding dengan daya serap industri.</p>
+                            </div>
+                            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+                                <h4 class="font-bold text-slate-800 text-sm mb-1 text-brand-blue"><i class="fa-solid fa-map-location-dot mr-1"></i> 3. Persebaran Tenaga Kerja Tidak Merata</h4>
+                                <p class="text-xs text-slate-600">Sebagian besar tenaga kerja berkonsentrasi di pulau Jawa, sementara daerah berkembang mengalami ketimpangan.</p>
+                            </div>
+                            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+                                <h4 class="font-bold text-slate-800 text-sm mb-1 text-brand-blue"><i class="fa-solid fa-hand-holding-dollar mr-1"></i> 4. Permasalahan Upah & Kesejahteraan</h4>
+                                <p class="text-xs text-slate-600">Tingkat Upah Minimum yang belum merata serta perlindungan jaminan sosial pekerja informal.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab D: Pengangguran & Solusi -->
+                    <div id="materi-pengangguran" class="materi-tab-content hidden space-y-6">
+                        <h3 class="text-lg font-bold text-brand-darkblue">Jenis-Jenis Pengangguran & Strategi Penanganannya</h3>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <div class="p-4 bg-white border border-slate-200 rounded-xl shadow-sm">
+                                <span class="text-xs font-bold bg-purple-100 text-purple-700 px-2 py-1 rounded">Friksional</span>
+                                <h4 class="font-bold text-slate-800 text-sm mt-2">Pengangguran Friksional</h4>
+                                <p class="text-xs text-slate-600 mt-1">Pengangguran yang timbul akibat masa tunggu atau jeda waktu saat seseorang berpindah pekerjaan.</p>
+                            </div>
+                            <div class="p-4 bg-white border border-slate-200 rounded-xl shadow-sm">
+                                <span class="text-xs font-bold bg-indigo-100 text-indigo-700 px-2 py-1 rounded">Struktural</span>
+                                <h4 class="font-bold text-slate-800 text-sm mt-2">Pengangguran Struktural</h4>
+                                <p class="text-xs text-slate-600 mt-1">Akibat perubahan struktur ekonomi (misal dari agraris ke industri/digital) sehingga keterampilan tidak cocok.</p>
+                            </div>
+                            <div class="p-4 bg-white border border-slate-200 rounded-xl shadow-sm">
+                                <span class="text-xs font-bold bg-amber-100 text-amber-700 px-2 py-1 rounded">Musiman</span>
+                                <h4 class="font-bold text-slate-800 text-sm mt-2">Pengangguran Musiman</h4>
+                                <p class="text-xs text-slate-600 mt-1">Pengangguran karena perubahan musim, seperti nelayan tidak melaut saat cuaca ekstrim di Maluku.</p>
+                            </div>
+                            <div class="p-4 bg-white border border-slate-200 rounded-xl shadow-sm">
+                                <span class="text-xs font-bold bg-red-100 text-red-700 px-2 py-1 rounded">Siklis / Konjungtural</span>
+                                <h4 class="font-bold text-slate-800 text-sm mt-2">Pengangguran Siklis</h4>
+                                <p class="text-xs text-slate-600 mt-1">Akibat kemunduran atau krisis ekonomi yang menurunkan permintaan pasar terhadap tenaga kerja.</p>
+                            </div>
+                            <div class="p-4 bg-white border border-slate-200 rounded-xl shadow-sm">
+                                <span class="text-xs font-bold bg-emerald-100 text-emerald-700 px-2 py-1 rounded">Terselubung</span>
+                                <h4 class="font-bold text-slate-800 text-sm mt-2">Pengangguran Terselubung</h4>
+                                <p class="text-xs text-slate-600 mt-1">Seseorang bekerja tetapi jam kerjanya atau produktivitasnya tidak optimal (kelebihan tenaga kerja dalam 1 tugas).</p>
+                            </div>
+                            <div class="p-4 bg-white border border-slate-200 rounded-xl shadow-sm">
+                                <span class="text-xs font-bold bg-rose-100 text-rose-700 px-2 py-1 rounded">Terbuka</span>
+                                <h4 class="font-bold text-slate-800 text-sm mt-2">Pengangguran Terbuka</h4>
+                                <p class="text-xs text-slate-600 mt-1">Sama sekali tidak memiliki pekerjaan dan sedang aktif mencari pekerjaan.</p>
+                            </div>
+                        </div>
+
+                        <!-- Cara Mengatasi -->
+                        <div class="bg-blue-900 text-white p-5 rounded-2xl">
+                            <h4 class="font-bold text-amber-300 text-base mb-3"><i class="fa-solid fa-lightbulb"></i> Solusi Penanggulangan Pengangguran:</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+                                <div class="bg-white/10 p-3 rounded-lg border border-white/10">
+                                    <strong>Peningkatan Keterampilan:</strong> Pelatihan vokasi, Kartu Pra-Kerja, dan BLK (Balai Latihan Kerja).
+                                </div>
+                                <div class="bg-white/10 p-3 rounded-lg border border-white/10">
+                                    <strong>Kewirausahaan UMKM:</strong> Pemberian pinjaman modal usaha dan pendampingan bisnis lokal.
+                                </div>
+                                <div class="bg-white/10 p-3 rounded-lg border border-white/10">
+                                    <strong>Informasi Pasar Kerja:</strong> Transparansi informasi lowongan kerja via portal digital nasional & daerah.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab E: Sistem Pengupahan -->
+                    <div id="materi-upah" class="materi-tab-content hidden space-y-6">
+                        <h3 class="text-lg font-bold text-brand-darkblue">Sistem Pengupahan & Kebijakan Pemerintah</h3>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="space-y-3">
+                                <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200">
+                                    <h4 class="font-bold text-slate-800 text-sm text-brand-blue">1. Upah Berdasarkan Waktu</h4>
+                                    <p class="text-xs text-slate-600">Dihitung berdasarkan satuan jam, hari, minggu, atau bulan. Contoh: Gaji bulanan guru/PNS.</p>
+                                </div>
+                                <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200">
+                                    <h4 class="font-bold text-slate-800 text-sm text-brand-blue">2. Upah Berdasarkan Hasil (Satuan Produk)</h4>
+                                    <p class="text-xs text-slate-600">Dihitung dari banyaknya output barang yang berhasil diselesaikan pekerja. Contoh: Petani pengupas biji pala/cengkeh per kg.</p>
+                                </div>
+                                <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200">
+                                    <h4 class="font-bold text-slate-800 text-sm text-brand-blue">3. Upah Borongan</h4>
+                                    <p class="text-xs text-slate-600">Kesepakatan imbalan total untuk menyelesaikan satu proyek pekerjaan secara keseluruhan. Contoh: Pembangunan dermaga.</p>
+                                </div>
+                            </div>
+
+                            <div class="bg-amber-50 p-5 rounded-2xl border border-amber-200">
+                                <h4 class="font-bold text-amber-900 text-base mb-2"><i class="fa-solid fa-gavel"></i> Kebijakan Upah Minimum (UMP/UMK)</h4>
+                                <p class="text-xs text-amber-800 leading-relaxed mb-3">
+                                    Pemerintah menetapkan Upah Minimum Provinsi (UMP) dan Upah Minimum Kabupaten/Kota (UMK) sebagai jaring pengaman agar pekerja memperoleh gaji yang layak untuk kebutuhan hidup minimum.
+                                </p>
+                                <div class="bg-white p-3 rounded-xl text-xs text-slate-700">
+                                <strong>Prinsip Keadilan:</strong> Pengupahan harus memperhatikan perlindungan pekerja sekaligus kelangsungan usaha pemberi kerja.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. AKTIVITAS INTERAKTIF -->
+        <section id="aktivitas" class="content-section hidden">
+            <div class="bg-white p-6 sm:p-8 rounded-3xl shadow-sm border border-slate-200">
+                <div class="flex items-center justify-between mb-6 pb-4 border-b border-slate-100">
+                    <h2 class="text-2xl font-bold text-brand-darkblue flex items-center gap-3">
+                        <i class="fa-solid fa-puzzle-piece text-emerald-600"></i> Aktivitas Interaktif Kasus Lokal
+                    </h2>
+                    <button onclick="showSection('menu')" class="text-sm text-slate-500 hover:text-brand-blue font-semibold"><i class="fa-solid fa-arrow-left"></i> Kembali</button>
+                </div>
+
+                <!-- Case Study Simulation -->
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 space-y-6">
+                    <div class="bg-emerald-50 border-l-4 border-emerald-500 p-4 rounded-r-xl">
+                        <h3 class="font-bold text-emerald-900 text-base">Studi Kasus Ketenagakerjaan Sektor Perikanan & Pariwisata Maluku Tengah</h3>
+                        <p class="text-xs text-emerald-700 mt-1">
+                            "Kabupaten Maluku Tengah memiliki potensi laut dan perikanan melimpah. Namun, banyak pemuda desa setelah lulus sekolah tidak memiliki keahlian pengolahan hasil laut modern sehingga sebagian memilih menganggur."
+                        </p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <h4 class="font-bold text-slate-800 text-sm">Pertanyaan Analisis Critical Thinking:</h4>
+                        <div class="p-4 bg-white rounded-xl border border-slate-200 space-y-3">
+                            <p class="text-xs sm:text-sm text-slate-700 font-semibold">1. Termasuk ke dalam jenis pengangguran apakah fenomena pemuda yang belum mendapatkan pekerjaan sesuai bidang keahliannya?</p>
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs">
+                                <button onclick="checkAktivitasAnswer(this, false, 'Salah. Pengangguran musiman dipengaruhi cuaca/musim.')" class="p-2.5 rounded-lg border border-slate-200 hover:bg-slate-100 text-left font-medium">A. Pengangguran Musiman</button>
+                                <button onclick="checkAktivitasAnswer(this, true, 'Benar! Pengangguran struktural terjadi karena adanya ketidakcocokan antara keahlian pencari kerja dengan kebutuhan industri.')" class="p-2.5 rounded-lg border border-slate-200 hover:bg-slate-100 text-left font-medium">B. Pengangguran Struktural</button>
+                                <button onclick="checkAktivitasAnswer(this, false, 'Salah. Pengangguran siklis terjadi akibat krisis ekonomi makro.')" class="p-2.5 rounded-lg border border-slate-200 hover:bg-slate-100 text-left font-medium">C. Pengangguran Siklis</button>
+                            </div>
+                            <div class="aktivitas-feedback text-xs p-3 rounded-lg hidden"></div>
+                        </div>
+
+                        <div class="p-4 bg-white rounded-xl border border-slate-200 space-y-3">
+                            <p class="text-xs sm:text-sm text-slate-700 font-semibold">2. Solusi paling tepat bagi pemerintah daerah Maluku Tengah untuk meningkatkan kualitas tenaga kerja lokal adalah?</p>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                                <button onclick="checkAktivitasAnswer(this, false, 'Kurang tepat. Memberikan bantuan tanpa pelatihan tidak menyelesaikan masalah jangka panjang.')" class="p-2.5 rounded-lg border border-slate-200 hover:bg-slate-100 text-left font-medium">A. Memberikan bantuan uang tunai secara terus menerus</button>
+                                <button onclick="checkAktivitasAnswer(this, true, 'Benar! Pelatihan vokasi pengolahan perikanan & UMKM meningkatkan keterampilan dan daya saing pemuda.')" class="p-2.5 rounded-lg border border-slate-200 hover:bg-slate-100 text-left font-medium">B. Mendirikan Balai Latihan Kerja (BLK) bidang kelautan & UMKM</button>
+                            </div>
+                            <div class="aktivitas-feedback text-xs p-3 rounded-lg hidden"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. PERMAINAN EDUKATIF -->
+        <section id="game" class="content-section hidden">
+            <div class="bg-white p-6 sm:p-8 rounded-3xl shadow-sm border border-slate-200">
+                <div class="flex items-center justify-between mb-6 pb-4 border-b border-slate-100">
+                    <h2 class="text-2xl font-bold text-brand-darkblue flex items-center gap-3">
+                        <i class="fa-solid fa-gamepad text-purple-600"></i> Permainan Edukatif: Benar / Salah Cepat
+                    </h2>
+                    <button onclick="showSection('menu')" class="text-sm text-slate-500 hover:text-brand-blue font-semibold"><i class="fa-solid fa-arrow-left"></i> Kembali</button>
+                </div>
+
+                <div class="max-w-2xl mx-auto bg-purple-50 p-6 sm:p-8 rounded-3xl border border-purple-200 text-center space-y-6">
+                    <div class="flex justify-between items-center text-xs font-bold text-purple-700">
+                        <span>Skor Game: <span id="game-score" class="text-lg text-brand-orange">0</span></span>
+                        <span>Soal <span id="game-index">1</span> dari 5</span>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-purple-100 min-h-[140px] flex items-center justify-center">
+                        <p id="game-statement" class="text-slate-800 font-bold text-sm sm:text-base leading-relaxed">
+                            "Seorang dokter spesialis di RSUD Masohi termasuk ke dalam kelompok Tenaga Kerja Terlatih."
+                        </p>
+                    </div>
+
+                    <div class="flex justify-center gap-4">
+                        <button onclick="answerGame(true)" class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-8 py-3 rounded-xl transition shadow-md text-sm flex items-center gap-2">
+                            <i class="fa-solid fa-check"></i> BENAR
+                        </button>
+                        <button onclick="answerGame(false)" class="bg-rose-500 hover:bg-rose-600 text-white font-bold px-8 py-3 rounded-xl transition shadow-md text-sm flex items-center gap-2">
+                            <i class="fa-solid fa-xmark"></i> SALAH
+                        </button>
+                    </div>
+
+                    <div id="game-feedback" class="text-xs font-bold p-3 rounded-xl hidden"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. EVALUASI PEMBELAJARAN (25 SOAL AUTOMATED) -->
+        <section id="evaluasi" class="content-section hidden">
+            <div class="bg-white p-6 sm:p-8 rounded-3xl shadow-sm border border-slate-200">
+                <div class="flex items-center justify-between mb-6 pb-4 border-b border-slate-100">
+                    <div>
+                        <h2 class="text-2xl font-bold text-brand-darkblue flex items-center gap-3">
+                            <i class="fa-solid fa-file-pen text-rose-600"></i> Evaluasi Pembelajaran Ketenagakerjaan
+                        </h2>
+                        <p class="text-xs text-slate-500">Jawablah 15 Soal Pilihan Ganda, 5 Soal Benar/Salah, dan 5 Uraian berikut.</p>
+                    </div>
+                    <button onclick="showSection('menu')" class="text-sm text-slate-500 hover:text-brand-blue font-semibold"><i class="fa-solid fa-arrow-left"></i> Kembali</button>
+                </div>
+
+                <form id="quiz-form" onsubmit="submitQuiz(event)" class="space-y-8">
+                    <!-- QUIZ QUESTIONS CONTAINER (JS INJECTED) -->
+                    <div id="quiz-questions" class="space-y-6"></div>
+
+                    <div class="pt-4 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+                        <p class="text-xs text-slate-500">Pastikan seluruh jawaban telah terisi sebelum mengirimkan tes.</p>
+                        <button type="submit" class="w-full sm:w-auto bg-brand-orange hover:bg-orange-600 text-white font-bold px-8 py-3 rounded-xl shadow-lg transition">
+                            <i class="fa-solid fa-paper-plane mr-2"></i> Kumpul Jawaban & Lihat Hasil
+                        </button>
+                    </div>
+                </form>
+
+                <!-- RESULT BOX -->
+                <div id="quiz-result" class="hidden mt-8 p-6 bg-slate-900 text-white rounded-2xl shadow-xl space-y-4">
+                    <div class="text-center space-y-2">
+                        <h3 class="text-2xl font-bold text-amber-300">Hasil Evaluasi Belajar</h3>
+                        <div class="text-5xl font-extrabold text-brand-orange my-2" id="final-score">0 / 100</div>
+                        <p id="score-grade" class="text-sm font-semibold text-blue-200"></p>
+                    </div>
+                    
+                    <div class="border-t border-slate-800 pt-4">
+                        <h4 class="font-bold text-sm text-amber-400 mb-2">Kunci Jawaban & Pembahasan Singkat:</h4>
+                        <div id="quiz-discussion" class="space-y-2 text-xs text-slate-300 max-h-60 overflow-y-auto custom-scrollbar pr-2"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 11. REFLEKSI & PROFIL GURU -->
+        <section id="refleksi" class="content-section hidden space-y-8">
+            <!-- Refleksi Siswa -->
+            <div class="bg-white p-6 sm:p-8 rounded-3xl shadow-sm border border-slate-200">
+                <div class="flex items-center justify-between mb-6 pb-4 border-b border-slate-100">
+                    <h2 class="text-2xl font-bold text-brand-darkblue flex items-center gap-3">
+                        <i class="fa-solid fa-user-graduate text-teal-600"></i> Jurnal Refleksi Mandiri Peserta Didik
+                    </h2>
+                    <button onclick="showSection('menu')" class="text-sm text-slate-500 hover:text-brand-blue font-semibold"><i class="fa-solid fa-arrow-left"></i> Kembali</button>
+                </div>
+
+                <div class="space-y-4 max-w-3xl">
+                    <div class="space-y-2">
+                        <label class="block text-xs font-bold text-slate-700">1. Pengetahuan baru apa yang paling berkesan bagi Anda dalam materi Ketenagakerjaan ini?</label>
+                        <textarea class="w-full p-3 text-xs border border-slate-300 rounded-xl focus:ring-2 focus:ring-brand-blue focus:outline-none" rows="2" placeholder="Tuliskan refleksi Anda di sini..."></textarea>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-xs font-bold text-slate-700">2. Bagian materi mana yang menurut Anda paling menantang atau membutuhkan pemahaman lebih lanjut?</label>
+                        <textarea class="w-full p-3 text-xs border border-slate-300 rounded-xl focus:ring-2 focus:ring-brand-blue focus:outline-none" rows="2" placeholder="Tuliskan kendala atau tantangan Anda..."></textarea>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-xs font-bold text-slate-700">3. Komitmen apa yang dapat Anda lakukan sebagai generasi muda Maluku Tengah untuk menyiapkan diri memasuki dunia kerja?</label>
+                        <textarea class="w-full p-3 text-xs border border-slate-300 rounded-xl focus:ring-2 focus:ring-brand-blue focus:outline-none" rows="2" placeholder="Tuliskan rencana pengembangan diri Anda..."></textarea>
+                    </div>
+                    <button onclick="saveRefleksi()" class="bg-teal-600 hover:bg-teal-700 text-white font-bold px-6 py-2.5 rounded-xl text-xs transition">
+                        <i class="fa-solid fa-floppy-disk mr-1"></i> Simpan Catatan Refleksi
+                    </button>
+                    <p id="refleksi-saved" class="text-xs text-emerald-600 font-semibold hidden"><i class="fa-solid fa-circle-check"></i> Refleksi Anda berhasil disimpan dalam media ini!</p>
+                </div>
+            </div>
+
+            <!-- Profil Guru -->
+            <div class="bg-gradient-to-br from-brand-darkblue to-blue-950 text-white p-6 sm:p-8 rounded-3xl shadow-lg">
+                <h2 class="text-xl font-bold mb-6 text-amber-300 flex items-center gap-2">
+                    <i class="fa-solid fa-id-card"></i> Profil Pengembang & Guru Pengampu
+                </h2>
+
+                <div class="flex flex-col sm:flex-row items-center gap-6">
+                    <div class="w-24 h-24 rounded-full bg-brand-orange border-4 border-white/20 flex items-center justify-center font-extrabold text-3xl shadow-md">
+                        DR
+                    </div>
+                    <div class="space-y-1 text-center sm:text-left">
+                        <h3 class="text-2xl font-bold">Dewi I. Rolobessy, S.E.</h3>
+                        <p class="text-sm text-blue-200">Guru Mata Pelajaran Ekonomi</p>
+                        <p class="text-xs text-blue-300">Satuan Pendidikan: SMA Negeri 46 Maluku Tengah</p>
+                        <div class="pt-2 flex flex-wrap justify-center sm:justify-start gap-2 text-xs">
+                            <span class="bg-white/10 px-3 py-1 rounded-full border border-white/10"><i class="fa-solid fa-book-bookmark mr-1"></i> Kurikulum Merdeka</span>
+                            <span class="bg-white/10 px-3 py-1 rounded-full border border-white/10"><i class="fa-solid fa-location-dot mr-1"></i> Maluku Tengah</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-slate-400 border-t border-slate-800 py-4 mt-8">
+        <div class="max-w-7xl mx-auto px-4 text-center text-xs space-y-1">
+            <p>&copy; Media Pembelajaran Interaktif Ekonomi - Ketenagakerjaan (Fase F / Kelas XI SMA).</p>
+            <p class="text-slate-500">SMA Negeri 46 Maluku Tengah • Dewi I. Rolobessy, S.E.</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // GLOBAL PROGRESS TRACKER
+        const visitedSections = new Set(['hero']);
+        const totalSections = 7; // Hero, Petunjuk, CP/TP, Apersepsi, Materi, Aktivitas, Game, Evaluasi
+
+        function updateProgress(sectionId) {
+            visitedSections.add(sectionId);
+            const progressPct = Math.min(Math.round((visitedSections.size / totalSections) * 100), 100);
+            document.getElementById('global-progress').style.width = progressPct + '%';
+            document.getElementById('progress-text').innerText = progressPct + '%';
+        }
+
+        // SECTION NAVIGATION SWITCHER
+        function showSection(sectionId) {
+            document.querySelectorAll('.content-section').forEach(sec => {
+                sec.classList.add('hidden');
+            });
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                updateProgress(sectionId);
+            }
+        }
+
+        // MATERI TABS SWITCHER
+        function switchMateriTab(tabKey) {
+            document.querySelectorAll('.materi-tab-btn').forEach(btn => {
+                btn.classList.remove('bg-brand-blue', 'text-white', 'shadow-sm');
+                btn.classList.add('bg-slate-100', 'text-slate-600');
+            });
+            document.querySelectorAll('.materi-tab-content').forEach(cnt => {
+                cnt.classList.add('hidden');
+            });
+
+            const activeBtn = document.getElementById('tab-' + tabKey);
+            const activeCnt = document.getElementById('materi-' + tabKey);
+
+            if (activeBtn && activeCnt) {
+                activeBtn.classList.remove('bg-slate-100', 'text-slate-600');
+                activeBtn.classList.add('bg-brand-blue', 'text-white', 'shadow-sm');
+                activeCnt.classList.remove('hidden');
+            }
+        }
+
+        // AKTIVITAS ANSWER CHECKER
+        function checkAktivitasAnswer(btn, isCorrect, feedbackMsg) {
+            const parent = btn.closest('.space-y-3');
+            const feedbackEl = parent.querySelector('.aktivitas-feedback');
+            
+            feedbackEl.classList.remove('hidden', 'bg-emerald-100', 'text-emerald-800', 'bg-rose-100', 'text-rose-800');
+            if (isCorrect) {
+                feedbackEl.classList.add('bg-emerald-100', 'text-emerald-800');
+                feedbackEl.innerHTML = `<i class="fa-solid fa-circle-check mr-1"></i> ${feedbackMsg}`;
+            } else {
+                feedbackEl.classList.add('bg-rose-100', 'text-rose-800');
+                feedbackEl.innerHTML = `<i class="fa-solid fa-circle-xmark mr-1"></i> ${feedbackMsg}`;
+            }
+        }
+
+        // GAME BENAR / SALAH LOGIC
+        const gameQuestions = [
+            { statement: "1. Dokter spesialis di RSUD Masohi termasuk ke dalam kelompok Tenaga Kerja Terlatih.", answer: false, explanation: "Dokter adalah Tenaga Kerja Terdidik karena memerlukan pendidikan formal perguruan tinggi." },
+            { statement: "2. Penduduk usia 16 tahun yang sedang aktif mencari pekerjaan termasuk dalam Angkatan Kerja.", answer: true, explanation: "Angkatan kerja mencakup penduduk usia kerja (>=15 thn) yang bekerja maupun menganggur aktif." },
+            { statement: "3. Pengangguran Musiman terjadi karena perubahan struktur ekonomi dari agraris ke industri.", answer: false, explanation: "Itu adalah Pengangguran Struktural. Pengangguran musiman dipengaruhi faktor iklim/musim." },
+            { statement: "4. Kebijakan UMP/UMK dibuat pemerintah untuk melindungi kesejahteraan minimum para pekerja.", answer: true, explanation: "Tepat! Upah Minimum berfungsi sebagai jaring pengaman pendapatan pekerja." },
+            { statement: "5. Sopir angkutan kota dan tukang jahit termasuk contoh Tenaga Kerja Terlatih.", answer: true, explanation: "Benar, pekerjaan tersebut membutuhkan keterampilan khusus dari pelatihan/pengalaman." }
+        ];
+
+        let currentGameIndex = 0;
+        let gameScore = 0;
+
+        function loadGameQuestion() {
+            if (currentGameIndex < gameQuestions.length) {
+                document.getElementById('game-index').innerText = currentGameIndex + 1;
+                document.getElementById('game-statement').innerText = gameQuestions[currentGameIndex].statement;
+                document.getElementById('game-feedback').classList.add('hidden');
+            } else {
+                document.getElementById('game-statement').innerText = `Permainan Selesai! Skor Akhir Anda: ${gameScore} dari ${gameQuestions.length * 20}`;
+                document.getElementById('game-feedback').classList.remove('hidden');
+                document.getElementById('game-feedback').className = "text-xs font-bold p-3 rounded-xl bg-purple-200 text-purple-900";
+                document.getElementById('game-feedback').innerText = "Hebat! Anda telah menguji pemahaman konsep ketenagakerjaan secara cepat.";
+            }
+        }
+
+        function answerGame(userChoice) {
+            if (currentGameIndex >= gameQuestions.length) return;
+
+            const q = gameQuestions[currentGameIndex];
+            const feedbackEl = document.getElementById('game-feedback');
+            feedbackEl.classList.remove('hidden', 'bg-emerald-100', 'text-emerald-800', 'bg-rose-100', 'text-rose-800');
+
+            if (userChoice === q.answer) {
+                gameScore += 20;
+                document.getElementById('game-score').innerText = gameScore;
+                feedbackEl.classList.add('bg-emerald-100', 'text-emerald-800');
+                feedbackEl.innerText = "TEPAT! " + q.explanation;
+            } else {
+                feedbackEl.classList.add('bg-rose-100', 'text-rose-800');
+                feedbackEl.innerText = "KURANG TEPAT! " + q.explanation;
+            }
+
+            setTimeout(() => {
+                currentGameIndex++;
+                loadGameQuestion();
+            }, 2500);
+        }
+
+        // EVALUASI (25 SOAL GENERATOR & AUTOMATED SCORING)
+        const quizData = [
+            // 15 PILIHAN GANDA
+            { id: 1, type: 'pg', q: "1. Segala hal yang berhubungan dengan tenaga kerja pada waktu sebelum, selama, dan sesudah masa kerja disebut...", options: ["A. Ketenagakerjaan", "B. Angkatan Kerja", "C. Kesempatan Kerja", "D. Tenaga Kerja"], ans: 0, exp: "Definisi Ketenagakerjaan sesuai UU No. 13 Tahun 2003 mencakup sebelum, selama, dan sesudah masa kerja." },
+            { id: 2, type: 'pg', q: "2. Penduduk usia 15 tahun ke atas yang bekerja atau sedang mencari pekerjaan dinamakan...", options: ["A. Pekerja Harian", "B. Angkatan Kerja", "C. Bukan Angkatan Kerja", "D. Tenaga Ahli"], ans: 1, exp: "Angkatan Kerja terdiri dari kelompok bekerja dan pengangguran yang aktif mencari kerja." },
+            { id: 3, type: 'pg', q: "3. Seorang mahasiswa usia 20 tahun yang fokus kuliah tanpa mencari pekerjaan tergolong ke dalam...", options: ["A. Angkatan Kerja", "B. Pengangguran Terbuka", "C. Bukan Angkatan Kerja", "D. Tenaga Kerja Terlatih"], ans: 2, exp: "Pelajar/mahasiswa yang tidak mencari kerja masuk dalam kelompok Bukan Angkatan Kerja." },
+            { id: 4, type: 'pg', q: "4. Guru SMA, Akuntan, dan Dokter merupakan contoh klasifikasi tenaga kerja...", options: ["A. Terlatih", "B. Terdidik", "C. Tidak Terdidik", "D. Kasar"], ans: 1, exp: "Profesi yang memerlukan jalur pendidikan tinggi formal termasuk Tenaga Kerja Terdidik." },
+            { id: 5, type: 'pg', q: "5. Pengangguran yang terjadi akibat jeda waktu saat seseorang mencari pekerjaan yang lebih sesuai disebut...", options: ["A. Pengangguran Siklis", "B. Pengangguran Friksional", "C. Pengangguran Musiman", "D. Pengangguran Terselubung"], ans: 1, exp: "Pengangguran friksional muncul karena proses pencarian dan penyesuaian lapangan kerja baru." },
+            { id: 6, type: 'pg', q: "6. Nelayan di pesisir Maluku Tengah yang tidak melaut saat musim angin timur mengalami pengangguran...", options: ["A. Musiman", "B. Struktural", "C. Siklis", "D. Terbuka"], ans: 0, exp: "Pengangguran musiman terjadi karena fluktuasi iklim atau pergantian musim." },
+            { id: 7, type: 'pg', q: "7. Perkembangan teknologi digital menyebabkan berkurangnya permintaan juru ketik manual. Hal ini memicu pengangguran...", options: ["A. Friksional", "B. Struktural", "C. Musiman", "D. Sukarela"], ans: 1, exp: "Pengangguran struktural terjadi akibat perubahan struktur dan teknologi ekonomi." },
+            { id: 8, type: 'pg', q: "8. Sistem upah yang dihitung berdasarkan banyaknya barang yang berhasil diselesaikan oleh pekerja dinamakan upah...", options: ["A. Waktu", "B. Hasil / Satuan", "C. Borongan", "D. Bonus"], ans: 1, exp: "Upah berdasarkan hasil ditentukan dari kuantitas produk yang dihasilkan pekerja." },
+            { id: 9, type: 'pg', q: "9. Penetapan Upah Minimum Provinsi (UMP) oleh pemerintah bertujuan utama untuk...", options: ["A. Membatasi keuntungan pengusaha", "B. Melindungi pekerja agar memperoleh upah layak", "C. Menghapuskan pajak perusahaan", "D. Menambah beban biaya produksi"], ans: 1, exp: "UMP/UMK berfungsi sebagai jaring pengaman agar pendapatan pekerja memenuhi kebutuhan hidup layak." },
+            { id: 10, type: 'pg', q: "10. Seseorang yang bekerja tetapi jam kerjanya sangat sedikit dan produktivitasnya tidak maksimal disebut...", options: ["A. Pengangguran Terselubung / Setengah Menganggur", "B. Pengangguran Friksional", "C. Tenaga Kerja Terdidik", "D. Angkatan Kerja Efektif"], ans: 0, exp: "Setengah menganggur/terselubung terjadi bila jam kerja atau potensi kerja tidak dimanfaatkan optimal." },
+            { id: 11, type: 'pg', q: "11. Masalah ketenagakerjaan di Indonesia yang ditandai oleh pemusatan tenaga kerja di Pulau Jawa merupakan masalah...", options: ["A. Rendahnya upah", "B. Persebaran tenaga kerja yang tidak merata", "C. Kurangnya sekolah tinggi", "D. Terlalu banyak industri"], ans: 1, exp: "Ketimpangan geografis tenaga kerja menyebabkan persebaran yang tidak merata antarwilayah." },
+            { id: 12, type: 'pg', q: "12. Lembaga pemerintah yang menyelenggarakan pelatihan keterampilan vokasi secara gratis untuk calon tenaga kerja adalah...", options: ["A. BLK (Balai Latihan Kerja)", "B. KPU", "C. BPS", "D. OJK"], ans: 0, exp: "BLK (Balai Latihan Kerja) bertugas meningkatkan keterampilan dan produktivitas tenaga kerja." },
+            { id: 13, type: 'pg', q: "13. Sistem pembayara upah untuk borongan pembangunan gedung atau dermaga dinamakan upah...", options: ["A. Harian", "B. Borongan", "C. Premi", "D. Komisi"], ans: 1, exp: "Upah borongan disepakati secara keseluruhan paket proyek dari awal hingga rampung." },
+            { id: 14, type: 'pg', q: "14. Langkah efektif generasi muda di Maluku Tengah untuk menghadapi persaingan dunia kerja adalah...", options: ["A. Pasrah menunggu keajaiban", "B. Meningkatkan keahlian diri dan literasi digital", "C. Menolak bekerja di sektor UMKM", "D. Menghindari pelatihan kerja"], ans: 1, exp: "Pengembangan skill dan adaptasi digital menjadi kunci peningkatan daya saing angkatan kerja muda." },
+            { id: 15, type: 'pg', q: "15. Pengangguran yang timbul akibat penurunan kegiatan perekonomian secara makro (krisis/resesi) adalah...", options: ["A. Pengangguran Siklis", "B. Pengangguran Musiman", "C. Pengangguran Friksional", "D. Pengangguran Voluntari"], ans: 0, exp: "Pengangguran siklis/konjungtural dipengaruhi langsung oleh gelombang konjungtur/resesi ekonomi." },
+
+            // 5 BENAR / SALAH
+            { id: 16, type: 'bs', q: "16. Ibu rumah tangga yang tidak mencari pekerjaan termasuk dalam kelompok Angkatan Kerja.", options: ["Benar", "Salah"], ans: 1, exp: "Salah. Ibu rumah tangga yang tidak bekerja/mencari kerja tergolong Bukan Angkatan Kerja." },
+            { id: 17, type: 'bs', q: "17. Sopir bus dan montir bengkel termasuk contoh tenaga kerja terlatih.", options: ["Benar", "Salah"], ans: 0, exp: "Benar. Pekerjaan ini mengandalkan keterampilan praktis yang didapat dari pelatihan & pengalaman." },
+            { id: 18, type: 'bs', q: "18. Pengangguran terbuka adalah kondisi seseorang yang sama sekali tidak bekerja dan aktif mencari kerja.", options: ["Benar", "Salah"], ans: 0, exp: "Benar. Pengangguran terbuka mencakup mereka yang tidak punya pekerjaan dan berusaha melamar kerja." },
+            { id: 19, type: 'bs', q: "19. Peningkatan kualitas pendidikan vokasi tidak memiliki pengaruh terhadap produktivitas tenaga kerja.", options: ["Benar", "Salah"], ans: 1, exp: "Salah. Pendidikan vokasi justru sangat efektif meningkatkan keahlian dan produktivitas pekerja." },
+            { id: 20, type: 'bs', q: "20. Kurangnya lapangan kerja yang sebanding dengan pertumbuhan angkatan kerja memicu kenaikan pengangguran.", options: ["Benar", "Salah"], ans: 0, exp: "Benar. Ketidakseimbangan pasokan tenaga kerja dan kesempatan kerja menimbulkan pengangguran." },
+
+            // 5 URAIAN / KASUS
+            { id: 21, type: 'ur', q: "21. Jelaskan perbedaan mendasar antara Tenaga Kerja, Angkatan Kerja, dan Kesempatan Kerja!", ansKey: "Tenaga kerja = seluruh penduduk usia kerja (>=15 thn). Angkatan kerja = tenaga kerja yang bekerja atau menganggur aktif. Kesempatan kerja = ketersediaan lapangan pekerjaan." },
+            { id: 22, type: 'ur', q: "22. Mengapa pengangguran struktural sering terjadi ketika suatu negara mengalami modernisasi teknologi?", ansKey: "Karena keahlian tenaga kerja lama tidak lagi sesuai dengan kualifikasi keterampilan teknologi modern yang dibutuhkan industri." },
+            { id: 23, type: 'ur', q: "23. Sebutkan 3 upaya yang dapat dilakukan pemerintah daerah untuk menekan angka pengangguran muda di Maluku Tengah!", ansKey: "1. Membuka pelatihan Balai Latihan Kerja (BLK) sektor maritim/UMKM. 2. Memudahkan perizinan & modal usaha pemuda. 3. Mengembangkan kemitraan sekolah dengan industri lokal." },
+            { id: 24, type: 'ur', q: "24. Bagaimana sistem upah berdasarkan hasil dapat mendorong produktivitas pekerja?", ansKey: "Karena besarnya pendapatan pekerja berbanding lurus dengan jumlah produk yang dihasilkan, sehingga pekerja termotivasi bekerja lebih cepat dan efisien." },
+            { id: 25, type: 'ur', q: "25. Mengapa pemerataan pembangunan industri di luar pulau Jawa penting untuk menyelesaikan masalah ketenagakerjaan?", ansKey: "Agar persebaran tenaga kerja menjadi merata, mengurangi migrasi berlebih ke kota besar, dan menciptakan pusat pertumbuhan ekonomi baru di daerah." }
+        ];
+
+        function renderQuiz() {
+            const container = document.getElementById('quiz-questions');
+            let html = '';
+
+            quizData.forEach((q, idx) => {
+                html += `
+                    <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-3">
+                        <div class="flex items-start justify-between">
+                            <span class="text-xs font-bold px-2.5 py-1 rounded ${q.type === 'pg' ? 'bg-blue-100 text-brand-blue' : q.type === 'bs' ? 'bg-purple-100 text-purple-700' : 'bg-amber-100 text-amber-800'}">
+                                ${q.type === 'pg' ? 'Pilihan Ganda' : q.type === 'bs' ? 'Benar / Salah' : 'Uraian Analisis'}
+                            </span>
+                            <span class="text-xs text-slate-400">Bobot: 4 Poin</span>
+                        </div>
+                        <p class="font-bold text-slate-800 text-xs sm:text-sm leading-relaxed">${q.q}</p>
+                `;
+
+                if (q.type === 'pg' || q.type === 'bs') {
+                    html += `<div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">`;
+                    q.options.forEach((opt, oIdx) => {
+                        html += `
+                            <label class="flex items-center space-x-2.5 p-3 bg-white rounded-xl border border-slate-200 cursor-pointer hover:border-brand-blue transition text-xs">
+                                <input type="radio" name="q_${q.id}" value="${oIdx}" class="text-brand-orange focus:ring-brand-orange" required>
+                                <span>${opt}</span>
+                            </label>
+                        `;
+                    });
+                    html += `</div>`;
+                } else if (q.type === 'ur') {
+                    html += `
+                        <textarea name="q_${q.id}" class="w-full p-3 text-xs border border-slate-300 rounded-xl bg-white focus:ring-2 focus:ring-brand-blue focus:outline-none" rows="2" placeholder="Ketikkan jawaban uraian Anda..." required></textarea>
+                    `;
+                }
+
+                html += `</div>`;
+            });
+
+            container.innerHTML = html;
+        }
+
+        function submitQuiz(e) {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            let score = 0;
+            let discussionHtml = '';
+
+            quizData.forEach((q) => {
+                const userVal = formData.get(`q_${q.id}`);
+
+                if (q.type === 'pg' || q.type === 'bs') {
+                    const isCorrect = parseInt(userVal) === q.ans;
+                    if (isCorrect) score += 4;
+
+                    discussionHtml += `
+                        <div class="p-2.5 rounded-lg ${isCorrect ? 'bg-emerald-950/60 border border-emerald-800' : 'bg-rose-950/60 border border-rose-800'}">
+                            <p class="font-bold text-white">${q.q}</p>
+                            <p class="${isCorrect ? 'text-emerald-400' : 'text-rose-400'} font-semibold mt-0.5">
+                                Status: ${isCorrect ? 'BENAR (+4)' : 'SALAH (+0)'}
+                            </p>
+                            <p class="text-slate-300 mt-1">${q.exp}</p>
+                        </div>
+                    `;
+                } else if (q.type === 'ur') {
+                    // Self-evaluated / Automatic Full score if student typed substantial text (>15 chars)
+                    const hasSubstance = userVal && userVal.trim().length >= 15;
+                    if (hasSubstance) score += 4;
+
+                    discussionHtml += `
+                        <div class="p-2.5 rounded-lg ${hasSubstance ? 'bg-emerald-950/60 border border-emerald-800' : 'bg-amber-950/60 border border-amber-800'}">
+                            <p class="font-bold text-white">${q.q}</p>
+                            <p class="text-blue-300 mt-1"><strong>Jawaban Anda:</strong> "${userVal || '-'}"</p>
+                            <p class="text-amber-300 mt-1"><strong>Kunci / Acuan Jawaban:</strong> ${q.ansKey}</p>
+                        </div>
+                    `;
+                }
+            });
+
+            document.getElementById('final-score').innerText = score + ' / 100';
+            const gradeEl = document.getElementById('score-grade');
+            if (score >= 85) gradeEl.innerText = "Predikat: Sangat Memuaskan (A) - Kualifikasi Sangat Baik!";
+            else if (score >= 70) gradeEl.innerText = "Predikat: Baik (B) - Berhasil Memahami Sebagian Besar Konsep.";
+            else gradeEl.innerText = "Predikat: Perlu Remedial (C) - Pelajari Kembali Modul Materi Pembelajaran.";
+
+            document.getElementById('quiz-discussion').innerHTML = discussionHtml;
+            document.getElementById('quiz-result').classList.remove('hidden');
+            window.scrollTo({ top: document.getElementById('quiz-result').offsetTop - 80, behavior: 'smooth' });
+        }
+
+        // SAVE REFLEKSI LOGIC
+        function saveRefleksi() {
+            const msg = document.getElementById('refleksi-saved');
+            msg.classList.remove('hidden');
+            setTimeout(() => {
+                msg.classList.add('hidden');
+            }, 3000);
+        }
+
+        // INITIALIZE APP ON LOAD
+        window.onload = function() {
+            renderQuiz();
+            loadGameQuestion();
+        }
+    </script>
+</body>
+</html>
